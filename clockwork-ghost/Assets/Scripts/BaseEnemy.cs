@@ -36,5 +36,5 @@ public abstract class BaseEnemy : MonoBehaviour {
 
 	// Event Handlers for when the enemy dies and when it takes damage
 	public abstract void OnDeath();
-	public abstract void OnDamage(int strength, DamageType type);
+	public abstract void OnDamage(int strength, DamageType type = DamageType.NORMAL);
 }

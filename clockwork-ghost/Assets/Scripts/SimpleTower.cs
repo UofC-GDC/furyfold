@@ -25,6 +25,6 @@ public class SimpleTower : BaseTower
 	// Just do some damage to every enemy equally
     public override void DoDamage(BaseEnemy enemy)
     {
-        enemy.OnDamage(strength, DamageType.NORMAL);
+        enemy.OnDamage(strength);
     }
 }
