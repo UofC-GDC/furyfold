@@ -21,6 +21,11 @@
                 - [ ] What tone and mood are we aiming for?
                 - [ ] How much narrative do we want?
         - [ ] What is the art style?
+        - [ ] In what ways does the player manage resources?
+                - [ ] What do troops as troops do?  
+                - [ ] What do troops as resoruces do?
+                - [ ] How does the player gain resources/troops? Loose them?
+                - [ ] How does the player allocate/control resources/troops?
 - [ ] Architecing the game logic
         - [ ] How is the code structured?
         - [ ] What are the top level objects and public facing interfaces?
