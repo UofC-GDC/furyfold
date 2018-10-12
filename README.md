@@ -9,7 +9,7 @@
 - Ambiguous as to whether or not the human is the bad guy or the good guy
 
 ### Tasks
-- [ ] Creting the desgin document
+- Creting the desgin document
         - What are the core mechanics?
                 - What are the core systems?
                 - How do you play the game?
@@ -26,14 +26,14 @@
                 - What do troops as resoruces do?
                 - How does the player gain resources/troops? Loose them?
                 - How does the player allocate/control resources/troops?
-- [ ] Architecing the game logic
+- Architecing the game logic
         - How is the code structured?
         - What are the top level objects and public facing interfaces?
         - Implement core systems
         - Create some sort of plan (Eg. UML)
-- [ ] Sound Design
+- Sound Design
         - Bakcground music
         - Sound effects
-- [ ] Art
+- Art
         - Begin working on concepts for the how the game will look
 
