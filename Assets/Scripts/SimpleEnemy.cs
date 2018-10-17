@@ -10,14 +10,6 @@ using UnityEngine;
 // </summary>
 public class SimpleEnemy : BaseEnemy
 {
-	// configurable in inspector
-	[SerializeField] int _spawnRate = 0;
-	[SerializeField] int _startWave = 0;
-
-	// An easier syntax for implementing get-only abstract properties and simple methods
-    public override int spawnRate => _spawnRate;
-    public override int startWave => _startWave;
-
 	// No health. Just die on damage
     public override void OnDamage(int strength, DamageType type)
     {

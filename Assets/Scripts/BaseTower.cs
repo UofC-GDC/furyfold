@@ -16,23 +16,34 @@ public abstract class BaseTower : MonoBehaviour {
 
 	// The max distance at which the Tower will find objects to attack
 	public abstract float range { get; }
+
+	private const float timeOut = 0.1f;
+	private float lastLoopTime;
+
 	
 	// Update is called once per frame
 	public virtual void Update () {
-		// find all nearby objects
-		var rayCastHits = Physics.SphereCastAll(transform.position, range, Vector3.up);
-		
-		// For each nearby object, if it's an enemy, do damage to it
-		foreach (var hit in rayCastHits){
-			var enemy = hit.collider.GetComponent<BaseEnemy>();
-			if (enemy != null){
-				DoDamage(enemy);
-			}
+		if (Time.time - lastLoopTime > timeOut){
+			// find all nearby objects
+			var rayCastHits = Physics.SphereCastAll(transform.position, range, Vector3.up);
+
+			//Select the BaseEnemy component of all nearby colliders that are enemies
+			var hits = 
+				(from enemy in 
+					(from hit in rayCastHits 
+					select hit.collider.GetComponent<BaseEnemy>()) 
+				where enemy != null 
+				select enemy).ToArray();
+
+			// Let the implementing class deal with the enemies
+			DoDamage(hits);
+			
+			lastLoopTime = Time.time;
 		}
 	}
 
 	// How to deal with each enemy
-	public abstract void DoDamage(BaseEnemy enemy);
+	public abstract void DoDamage(BaseEnemy[] enemies);
 }
 
 public enum DamageType{

@@ -19,11 +19,6 @@ public abstract class BaseEnemy : MonoBehaviour {
 	protected NavMeshAgent agent;
 	public Transform target;
 
-	// Used by a spawn manager to to choose how many of these enemies to spawn
-	// and when to start spawing them
-	public abstract int spawnRate { get; }
-	public abstract int startWave { get; }
-
 	// Use this for initialization
 	public virtual void Start () {
 		agent = GetComponent<NavMeshAgent>();

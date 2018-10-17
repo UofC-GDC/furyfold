@@ -23,8 +23,10 @@ public class SimpleTower : BaseTower
 	}
 
 	// Just do some damage to every enemy equally
-    public override void DoDamage(BaseEnemy enemy)
+    public override void DoDamage(BaseEnemy[] enemies)
     {
-        enemy.OnDamage(strength);
+		foreach (var enemy in enemies){
+			enemy.OnDamage(strength);
+		}
     }
 }
