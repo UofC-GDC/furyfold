@@ -8,11 +8,12 @@ using System.Linq;
 // Abstract base class of all towers. Simplifies adding
 // new towers by taking care of the base functionality
 // of finding enemies to attack and dealing damage
-// to them. 
+// to them.
 // </summary>
 
 [RequireComponent(typeof(NavMeshObstacle))]
-public abstract class BaseTower : MonoBehaviour {
+public abstract class BaseTower : MonoBehaviour, IDamagable
+{
 
 	// The max distance at which the Tower will find objects to attack
 	public abstract float range { get; }
@@ -20,32 +21,37 @@ public abstract class BaseTower : MonoBehaviour {
 	private const float timeOut = 0.1f;
 	private float lastLoopTime;
 
-	
+
 	// Update is called once per frame
-	public virtual void Update () {
-		if (Time.time - lastLoopTime > timeOut){
+	public virtual void Update()
+	{
+		if (Time.time - lastLoopTime > timeOut)
+		{
 			// find all nearby objects
 			var rayCastHits = Physics.SphereCastAll(transform.position, range, Vector3.up);
 
 			//Select the BaseEnemy component of all nearby colliders that are enemies
-			var hits = 
-				(from enemy in 
-					(from hit in rayCastHits 
-					select hit.collider.GetComponent<BaseEnemy>()) 
-				where enemy != null 
-				select enemy).ToArray();
+			var hits =
+				(from enemy in
+					(from hit in rayCastHits
+					 select hit.collider.GetComponent<BaseEnemy>())
+				 where enemy != null
+				 select enemy).ToArray();
 
 			// Let the implementing class deal with the enemies
 			DoDamage(hits);
-			
+
 			lastLoopTime = Time.time;
 		}
 	}
 
 	// How to deal with each enemy
 	public abstract void DoDamage(BaseEnemy[] enemies);
+	public abstract void OnDeath();
+	public abstract void OnDamage(int strength, DamageType type = DamageType.NORMAL);
 }
 
-public enum DamageType{
+public enum DamageType
+{
 	NORMAL, GROUND, AIR
 }
