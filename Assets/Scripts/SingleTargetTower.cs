@@ -8,7 +8,7 @@ using UnityEngine;
 // and function. Used as a demonstration of how to
 // make towers
 // </summary>
-public class SimpleTower : BaseTower
+public class SingleTargetTower : BaseTower
 {
 	// Configurable in Inspector
 	[SerializeField] int strength = 0;
@@ -30,14 +30,23 @@ public class SimpleTower : BaseTower
 	public override void DoDamage(BaseEnemy[] enemies)
 	{
         bool ispresent = false;
-        for(int i = 0; i<enemies.Length;i++){
-            if(target==enemies[i]) ispresent = true;
+        if (target != null)
+        {
+            for (int i = 0; i < enemies.Length; i++)
+            {
+                if (target.ID == enemies[i].ID)
+                {
+                    ispresent = true;
+                    Debug.Log("kek");
+                }
+            }
         }
         if(!ispresent) target=null;
-        if(target == null){
+        if(target == null&&enemies.Length>0){
             target=enemies[0];
         }
-		target.OnDamage(strength);
+        if (target != null)target.OnDamage(strength);
+        
 	}
 
 	public override void OnDamage(int strength, DamageType type = DamageType.NORMAL)

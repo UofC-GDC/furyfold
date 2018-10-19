@@ -15,7 +15,7 @@ public class SimpleEnemy : BaseEnemy
     {
         health-=strength;
         if(health<=0){
-            OnDeath;
+            OnDeath();
         }
     }
 
