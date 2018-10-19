@@ -10,10 +10,13 @@ using UnityEngine;
 // </summary>
 public class SimpleEnemy : BaseEnemy
 {
-	// No health. Just die on damage
+	public int health = 10;
     public override void OnDamage(int strength, DamageType type)
     {
-        OnDeath();
+        health-=strength;
+        if(health<=0){
+            OnDeath;
+        }
     }
 
 	// Destroy the enemy on death. No clean up needed
