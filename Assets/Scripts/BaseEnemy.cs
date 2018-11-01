@@ -19,11 +19,15 @@ public abstract class BaseEnemy : MonoBehaviour, IDamagable
 	// used by Unity AI to move the enemy intelligently
 	protected NavMeshAgent agent;
 	public Transform target;
+    public static long counter = 0;
+    public long ID;
 
 	// Use this for initialization
 	public virtual void Start()
 	{
-		agent = GetComponent<NavMeshAgent>();
+        ID = counter;
+        agent = GetComponent<NavMeshAgent>();
+        counter++;
 	}
 
 	// Update is called once per frame
