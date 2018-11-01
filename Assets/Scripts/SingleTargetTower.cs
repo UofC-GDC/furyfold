@@ -14,6 +14,8 @@ public class SingleTargetTower : BaseTower
 	[SerializeField] int strength = 0;
 	[SerializeField] int _range = 0;
 
+	public int health;
+
     private BaseEnemy target;
 
 
@@ -24,6 +26,10 @@ public class SingleTargetTower : BaseTower
 		{
 			return _range;
 		}
+	}
+
+	void start(){
+		health = 10;
 	}
 
 	// Just do some damage to every enemy equally
@@ -51,11 +57,11 @@ public class SingleTargetTower : BaseTower
 
 	public override void OnDamage(int strength, DamageType type = DamageType.NORMAL)
 	{
-		throw new System.NotImplementedException();
+		health-=strength;
 	}
 
 	public override void OnDeath()
 	{
-		throw new System.NotImplementedException();
+		Destroy(gameObject);
 	}
 }

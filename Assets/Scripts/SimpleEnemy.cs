@@ -10,7 +10,7 @@ using UnityEngine;
 // </summary>
 public class SimpleEnemy : BaseEnemy
 {
-	int health=10;
+	public int health=10;
     public override void OnDamage(int strength, DamageType type)
     {
         health-=strength;
