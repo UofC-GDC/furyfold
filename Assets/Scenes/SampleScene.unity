@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44659358, g: 0.49642974, b: 0.5748251, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -192,7 +192,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4919222540133394, guid: 8d784506dfcb24c3c991ba1a01a5a470, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.86
+      value: 0.92
       objectReference: {fileID: 0}
     - target: {fileID: 4919222540133394, guid: 8d784506dfcb24c3c991ba1a01a5a470, type: 2}
       propertyPath: m_LocalPosition.z
@@ -222,6 +222,15 @@ Prefab:
         type: 2}
       propertyPath: _range
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114898076336961756, guid: 8d784506dfcb24c3c991ba1a01a5a470,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1645438613444092, guid: 8d784506dfcb24c3c991ba1a01a5a470, type: 2}
+      propertyPath: m_Name
+      value: SingleTargetTower
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d784506dfcb24c3c991ba1a01a5a470, type: 2}
@@ -313,6 +322,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &447274150 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1645438613444092, guid: 8d784506dfcb24c3c991ba1a01a5a470,
+    type: 2}
+  m_PrefabInternal: {fileID: 415982466}
+--- !u!114 &447274157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 447274150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47077e3cb74574ab791d55690738b15a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  strength: 10
+  _range: 1
 --- !u!1 &534669902
 GameObject:
   m_ObjectHideFlags: 0
@@ -530,7 +557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e117770cd2f52438a97c13772fc7bb00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnTimeOut: 0.06
+  spawnTimeOut: 0.05
   maxWave: 10
   target: {fileID: 972146509}
   enemies:
