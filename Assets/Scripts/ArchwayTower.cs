@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class ArchwayTower : BaseTower {
 
@@ -21,6 +22,7 @@ public class ArchwayTower : BaseTower {
 	void Start () {
 		health = 10;
 		Debug.Log("Arch Start");
+		GetComponent<NavMeshObstacle>().enabled = false;
 	}
 	
 	// Update is called once per frame
