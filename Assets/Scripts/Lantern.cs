@@ -9,6 +9,7 @@ public class Lantern : BaseTower {
 
 	[SerializeField] int _range = 5;
 	[SerializeField] int strength = 10;
+	public int health =10;
 	public override float range
 	{
 		get
@@ -17,7 +18,7 @@ public class Lantern : BaseTower {
 		}
 	}
 
-	public int health;
+
 
 	// Use this for initialization
 	void Start () {
@@ -25,7 +26,7 @@ public class Lantern : BaseTower {
 	
 	// Update is called once per frame
 	override public void Update () {
-			if(health<=0) OnDeath();
+		if(health<=0) OnDeath();
 	}
 
 	override public void OnDamage(int strength, DamageType type = DamageType.NORMAL)

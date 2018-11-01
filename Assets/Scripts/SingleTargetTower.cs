@@ -14,7 +14,7 @@ public class SingleTargetTower : BaseTower
 	[SerializeField] int strength = 0;
 	[SerializeField] int _range = 0;
 
-	public int health;
+	public int health =10;
 
     private BaseEnemy target;
 
@@ -28,9 +28,7 @@ public class SingleTargetTower : BaseTower
 		}
 	}
 
-	void start(){
-		health = 10;
-	}
+
 
 	// Just do some damage to every enemy equally
 	public override void DoDamage(BaseEnemy[] enemies)

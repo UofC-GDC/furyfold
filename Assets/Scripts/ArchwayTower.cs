@@ -7,6 +7,7 @@ public class ArchwayTower : BaseTower {
 
 	[SerializeField] int strength = 2;
 	[SerializeField] int _range = 0;
+	public int health=10;
 
 	public override float range
 	{
@@ -16,12 +17,10 @@ public class ArchwayTower : BaseTower {
 		}
 	}
 
-	public int health;
+
 
 	// Use this for initialization
 	void Start () {
-		health = 10;
-		Debug.Log("Arch Start");
 		GetComponent<NavMeshObstacle>().enabled = false;
 	}
 	
@@ -42,6 +41,5 @@ public class ArchwayTower : BaseTower {
 
 	private void OnTriggerEnter(Collider other){
 		other.GetComponent<BaseEnemy>()?.OnDamage(strength);
-		Debug.Log("Colliding");
 	}
 }
