@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
-    public static Player instance = null; // singleton design pattern
+    private static Player instance = null; // singleton design pattern
 
     private int paperSupply; // current amount of paper
+
+
+    public static Player Instance {
+        get { return instance; }
+    }
+
 
     // use for self init
     void Awake()
@@ -14,35 +20,23 @@ public class Player : MonoBehaviour {
         if (instance == null)
         {
             instance = this;
-        }
 
+            DontDestroyOnLoad(gameObject); // player data will exist throughout game
+        }
         else if (instance != this)
         {
             Destroy(gameObject); // destroy any attempts to create a duplicate
         }
-
-        DontDestroyOnLoad(gameObject); // player data will exist throughout game
-
     }
 
-    // use for init from other scripts
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
-    public void addPaper(int extraPaper)
+    public void addPaper(int paperGain)
     {
-        paperSupply += extraPaper;
+        paperSupply += paperGain;
     }
 
-    public void removePaper(int lostPaper)
+    public void removePaper(int paperLoss)
     {
-        paperSupply -= lostPaper;
+        paperSupply -= paperLoss;
     }
 
 }
