@@ -24,7 +24,7 @@ public class UnitQueue : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-d
+
 	}
 
 	public void queue(int i)
