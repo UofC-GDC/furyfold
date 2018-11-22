@@ -438,7 +438,7 @@ MonoBehaviour:
   ID: 0
   health: 10
   sightRange: 10
-  range: 10
+  attackRange: 2
   strength: 1
 --- !u!195 &637264978
 NavMeshAgent:
@@ -503,3 +503,155 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 461027b6668964e599c28827c24d808f, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &714847733 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1645438613444092, guid: 8d784506dfcb24c3c991ba1a01a5a470,
+    type: 2}
+  m_PrefabInternal: {fileID: 899450439}
+--- !u!114 &714847734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 714847733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7475af7a79c9a4562a6ada9c549ba4cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  strength: 2
+  _range: 0
+  health: 100
+--- !u!1001 &899450439
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4919222540133394, guid: 8d784506dfcb24c3c991ba1a01a5a470, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -2.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 4919222540133394, guid: 8d784506dfcb24c3c991ba1a01a5a470, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 4919222540133394, guid: 8d784506dfcb24c3c991ba1a01a5a470, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 2.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 4919222540133394, guid: 8d784506dfcb24c3c991ba1a01a5a470, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4919222540133394, guid: 8d784506dfcb24c3c991ba1a01a5a470, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4919222540133394, guid: 8d784506dfcb24c3c991ba1a01a5a470, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4919222540133394, guid: 8d784506dfcb24c3c991ba1a01a5a470, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4919222540133394, guid: 8d784506dfcb24c3c991ba1a01a5a470, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114898076336961756, guid: 8d784506dfcb24c3c991ba1a01a5a470,
+        type: 2}
+      propertyPath: _range
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114898076336961756, guid: 8d784506dfcb24c3c991ba1a01a5a470,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1645438613444092, guid: 8d784506dfcb24c3c991ba1a01a5a470, type: 2}
+      propertyPath: m_Name
+      value: Archway (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114898076336961756, guid: 8d784506dfcb24c3c991ba1a01a5a470, type: 2}
+  m_SourcePrefab: {fileID: 100100000, guid: 8d784506dfcb24c3c991ba1a01a5a470, type: 2}
+  m_IsPrefabAsset: 0
+--- !u!1001 &915822025
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4919222540133394, guid: 8d784506dfcb24c3c991ba1a01a5a470, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -2.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 4919222540133394, guid: 8d784506dfcb24c3c991ba1a01a5a470, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 4919222540133394, guid: 8d784506dfcb24c3c991ba1a01a5a470, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -1.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 4919222540133394, guid: 8d784506dfcb24c3c991ba1a01a5a470, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4919222540133394, guid: 8d784506dfcb24c3c991ba1a01a5a470, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4919222540133394, guid: 8d784506dfcb24c3c991ba1a01a5a470, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4919222540133394, guid: 8d784506dfcb24c3c991ba1a01a5a470, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4919222540133394, guid: 8d784506dfcb24c3c991ba1a01a5a470, type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114898076336961756, guid: 8d784506dfcb24c3c991ba1a01a5a470,
+        type: 2}
+      propertyPath: _range
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114898076336961756, guid: 8d784506dfcb24c3c991ba1a01a5a470,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1645438613444092, guid: 8d784506dfcb24c3c991ba1a01a5a470, type: 2}
+      propertyPath: m_Name
+      value: Archway
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114898076336961756, guid: 8d784506dfcb24c3c991ba1a01a5a470, type: 2}
+  m_SourcePrefab: {fileID: 100100000, guid: 8d784506dfcb24c3c991ba1a01a5a470, type: 2}
+  m_IsPrefabAsset: 0
+--- !u!1 &1336073569 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1645438613444092, guid: 8d784506dfcb24c3c991ba1a01a5a470,
+    type: 2}
+  m_PrefabInternal: {fileID: 915822025}
+--- !u!114 &1336073570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1336073569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7475af7a79c9a4562a6ada9c549ba4cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  strength: 2
+  _range: 0
+  health: 100
