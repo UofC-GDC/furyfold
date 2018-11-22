@@ -5,9 +5,15 @@ using UnityEngine;
 public class UnitQueue : MonoBehaviour
 {
 	[SerializeField] public List<UnitType> unitTypes = new List<UnitType>();
-	[SerializeField] private int paper = 0;
+	[SerializeField] private int _paper = 0;
 
 	[SerializeField] private List<int> _queue = new List<int>();
+
+	public int paper {
+		get {
+			return _paper;
+		}
+	}
 
 	// Use this for initialization
 	void Start()
@@ -18,7 +24,7 @@ public class UnitQueue : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-
+d
 	}
 
 	public void queue(int i)
@@ -33,7 +39,7 @@ public class UnitQueue : MonoBehaviour
 
 	public void addPaper(int n)
 	{
-		paper += n;
+		_paper += n;
 	}
 
 	public UnitType getNext()
@@ -41,7 +47,7 @@ public class UnitQueue : MonoBehaviour
 		for (var i = 0; i < _queue.Count; i++)
 		{
 			int t = _queue[i];
-			if (unitTypes[_queue[i]].cost <= paper)
+			if (unitTypes[_queue[i]].cost <= _paper)
 			{
 				_queue.RemoveAt(i);
 				paper -= unitTypes[t].cost;
