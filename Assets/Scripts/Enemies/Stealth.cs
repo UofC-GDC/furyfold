@@ -7,8 +7,10 @@ public class Stealth : BaseEnemy {
 
     public int health = 10;
     public int sightRange = 10;
-    public int range = 3;
+    public int attackRange = 2;
     public int strength = 1;
+
+    private BaseTower towerTarget; // Need this for DoDamage
 
     public override void Start()
     {
@@ -20,22 +22,27 @@ public class Stealth : BaseEnemy {
     {
         base.Update();
 
-        // When stealth kills target, find a new one
-        if(target == null)
+        // When stealth kills target, find a new one. When none are found do nothing.
+        if(!FindNearestArchwayOrBlessingScript())
         {
-            FindNearestArchwayOrBlessingScript();
+            return;
+        }
+
+        DoDamage();
+    }
+    
+    public void DoDamage()
+    {
+        if(IsTargetWithinAttackRange())
+        {
+            towerTarget.OnDamage(strength);
+            target = gameObject.transform;
         }
     }
 
-    // TODO Need to figure out how to deal damage to current target from range
-    public void DoDamage()
+    public override void OnDamage(int damage, DamageType type = DamageType.NORMAL)
     {
-
-    }
-
-    public override void OnDamage(int strength, DamageType type = DamageType.NORMAL)
-    {
-        health -= strength;
+        health -= damage;
 
         if (health <= 0)
         {
@@ -48,7 +55,19 @@ public class Stealth : BaseEnemy {
         Destroy(gameObject);
     }
 
-    private void FindNearestArchwayOrBlessingScript()
+    private bool IsTargetWithinAttackRange()
+    {
+        float distance = Vector3.Distance(transform.position, towerTarget.transform.position);
+        
+        if(distance <= attackRange)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    private bool FindNearestArchwayOrBlessingScript()
     {
         var rayCastHits = Physics.SphereCastAll(transform.position, sightRange, Vector3.up);
 
@@ -63,6 +82,12 @@ public class Stealth : BaseEnemy {
         // Find all BaseTowers in list that have a subclass of ArchwayTower and make a new list
         var targets = hits.OfType<ArchwayTower>().ToList();
 
+        // When no archway towers are found
+        if (targets.Count <= 0 || targets == null)
+        {
+            return false;
+        }
+
         // Go through all possible targets and choose the closest one as the target
         BaseTower p = null;
         foreach (BaseTower possibleTarget in targets)
@@ -70,12 +95,17 @@ public class Stealth : BaseEnemy {
             if(p == null)
             {
                 p = possibleTarget;
+                target = possibleTarget.transform;
+                towerTarget = possibleTarget;
             }
 
             if (p != null && Vector3.Distance(transform.position, possibleTarget.transform.position) <= Vector3.Distance(transform.position, p.transform.position))
             {
                 target = possibleTarget.transform;
+                towerTarget = possibleTarget;
             }
         }
+
+        return true;
     }
 }
