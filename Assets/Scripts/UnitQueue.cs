@@ -9,6 +9,8 @@ public class UnitQueue : MonoBehaviour
 
 	[SerializeField] private List<int> _queue = new List<int>();
 
+	public System.Tuple<System.Tuple<Vector3, Vector3>, System.Tuple<Vector3, Vector3>> spawnRange;
+
 	public int paper {
 		get {
 			return _paper;
@@ -26,7 +28,7 @@ public class UnitQueue : MonoBehaviour
 	{
 
 	}
-
+System.Tuple<System.Tuple<Vector3, Vector3>, System.Tuple<Vector3, Vector3>>
 	public void queue(int i)
 	{
 		_queue.Add(i);
@@ -50,7 +52,7 @@ public class UnitQueue : MonoBehaviour
 			if (unitTypes[_queue[i]].cost <= _paper)
 			{
 				_queue.RemoveAt(i);
-				paper -= unitTypes[t].cost;
+				_paper -= unitTypes[t].cost;
 				return unitTypes[t];
 			}
 		}
