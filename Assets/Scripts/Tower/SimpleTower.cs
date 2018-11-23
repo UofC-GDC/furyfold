@@ -37,9 +37,4 @@ public class SimpleTower : BaseTower
 	{
 		throw new System.NotImplementedException();
 	}
-
-	public override void OnDeath()
-	{
-		throw new System.NotImplementedException();
-	}
 }
