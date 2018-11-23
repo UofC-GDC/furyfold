@@ -38,6 +38,6 @@ public class SimpleTower : BaseTower
 	public override void OnDamage(int strength, DamageType type = DamageType.NORMAL)
 	{
 		health-=strength;
-		if(health<=0) OnDeath();
+		if(health<=0) base.OnDeath();
 	}
 }
