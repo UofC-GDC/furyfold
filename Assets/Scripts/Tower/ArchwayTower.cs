@@ -32,7 +32,7 @@ public class ArchwayTower : BaseTower
 	override public void OnDamage(int strength, DamageType type = DamageType.NORMAL)
 	{
 		health -= strength;
-		if(health<=0) OnDeath();
+		if(health<=0) base.OnDeath();
 	}
 
 	override public void DoDamage(BaseEnemy[] enemies)
