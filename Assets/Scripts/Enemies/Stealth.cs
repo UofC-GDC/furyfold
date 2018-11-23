@@ -79,8 +79,23 @@ public class Stealth : BaseEnemy {
              where tower != null
              select tower).ToArray();
 
-        // Find all BaseTowers in list that have a subclass of ArchwayTower and make a new list
-        var targets = hits.OfType<ArchwayTower>().ToList();
+        var dummyList =
+            (from at in (from maybeAt in hits
+                        select maybeAt as ArchwayTower)
+            where at != null
+            select at).ToList();
+
+       // Find all BaseTowers in list that have a subclass of ArchwayTower and make a new list
+       List <BaseTower> targets = new List<BaseTower>();
+
+        if (dummyList.Count() != 0)
+        {
+            targets = (from at in dummyList select at as BaseTower).ToList();
+        }
+        else
+        {
+            targets = (from at in hits select at as BaseTower).ToList();
+        }
 
         // When no archway towers are found
         if (targets.Count <= 0 || targets == null)

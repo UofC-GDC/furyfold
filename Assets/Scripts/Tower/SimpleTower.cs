@@ -13,6 +13,7 @@ public class SimpleTower : BaseTower
 	// Configurable in Inspector
 	[SerializeField] int strength = 0;
 	[SerializeField] int _range = 0;
+	public int health = 10;
 
 
 	// Just return the property set in the inspector
@@ -36,11 +37,7 @@ public class SimpleTower : BaseTower
 
 	public override void OnDamage(int strength, DamageType type = DamageType.NORMAL)
 	{
-		throw new System.NotImplementedException();
-	}
-
-	public override void OnDeath()
-	{
-		throw new System.NotImplementedException();
+		health-=strength;
+		if(health<=0) OnDeath();
 	}
 }

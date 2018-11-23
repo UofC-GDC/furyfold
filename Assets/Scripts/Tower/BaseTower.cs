@@ -21,6 +21,8 @@ public abstract class BaseTower : MonoBehaviour, IDamagable
 	private const float timeOut = 0.1f;
 	private float lastLoopTime;
 
+	[SerializeField] private int paper;
+
 
 	// Update is called once per frame
 	public virtual void Update()
@@ -47,7 +49,11 @@ public abstract class BaseTower : MonoBehaviour, IDamagable
 
 	// How to deal with each enemy
 	public abstract void DoDamage(BaseEnemy[] enemies);
-	public abstract void OnDeath();
+	public virtual void OnDeath()
+	{
+		FindObjectOfType<UnitQueue>().addPaper(paper);
+		Destroy(gameObject);
+	}
 	public abstract void OnDamage(int strength, DamageType type = DamageType.NORMAL);
 }
 
