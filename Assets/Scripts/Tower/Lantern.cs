@@ -29,12 +29,12 @@ public class Lantern : BaseTower
 	// Update is called once per frame
 	override public void Update()
 	{
-		if (health <= 0) OnDeath();
 	}
 
 	override public void OnDamage(int strength, DamageType type = DamageType.NORMAL)
 	{
 		health -= strength;
+		if(health<=0) OnDeath();
 	}
 
 	override public void DoDamage(BaseEnemy[] enemies)
