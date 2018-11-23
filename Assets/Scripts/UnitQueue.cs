@@ -28,7 +28,7 @@ public class UnitQueue : MonoBehaviour
 	{
 
 	}
-System.Tuple<System.Tuple<Vector3, Vector3>, System.Tuple<Vector3, Vector3>>
+	
 	public void queue(int i)
 	{
 		_queue.Add(i);
