@@ -33,7 +33,10 @@ public abstract class BaseEnemy : MonoBehaviour, IDamagable
 	// Update is called once per frame
 	public virtual void Update()
 	{
-		agent.SetDestination(target.position);
+        if (target != null)
+        {
+            agent.SetDestination(target.position);
+        }
 	}
 
 	public abstract void OnDeath();
