@@ -6,8 +6,8 @@ using System.Linq;
 public class Stealth : BaseEnemy {
 
     public int health = 10;
-    public int sightRange = 10;
-    public int attackRange = 2;
+    public float sightRange = 10f;
+    public float attackRange = 2.5f;
     public int strength = 1;
 
     private BaseTower towerTarget; // Need this for DoDamage
@@ -15,7 +15,7 @@ public class Stealth : BaseEnemy {
     public override void Start()
     {
         base.Start();
-        FindNearestArchwayOrBlessingScript();
+        FindNearestArchwayTower();
     }
 
     public override void Update()
@@ -23,7 +23,7 @@ public class Stealth : BaseEnemy {
         base.Update();
 
         // When stealth kills target, find a new one. When none are found do nothing.
-        if(!FindNearestArchwayOrBlessingScript())
+        if(!FindNearestArchwayTower())
         {
             return;
         }
@@ -67,7 +67,7 @@ public class Stealth : BaseEnemy {
         return false;
     }
 
-    private bool FindNearestArchwayOrBlessingScript()
+    private bool FindNearestArchwayTower()
     {
         var rayCastHits = Physics.SphereCastAll(transform.position, sightRange, Vector3.up);
 
@@ -79,25 +79,26 @@ public class Stealth : BaseEnemy {
              where tower != null
              select tower).ToArray();
 
-        var dummyList =
+        // Make a list of all nearby ArchwayTowers
+        var archwayList =
             (from at in (from maybeAt in hits
                         select maybeAt as ArchwayTower)
             where at != null
             select at).ToList();
 
-       // Find all BaseTowers in list that have a subclass of ArchwayTower and make a new list
-       List <BaseTower> targets = new List<BaseTower>();
+        // Make a hitlist of ArchwayTowers if any exist otherwise have a hitlist of all towers nearby
+        List<BaseTower> targets = new List<BaseTower>();
 
-        if (dummyList.Count() != 0)
+        if (archwayList.Count() != 0)
         {
-            targets = (from at in dummyList select at as BaseTower).ToList();
+            targets = (from at in archwayList select at as BaseTower).ToList();
         }
         else
         {
             targets = (from at in hits select at as BaseTower).ToList();
         }
 
-        // When no archway towers are found
+        // When no towers are found
         if (targets.Count <= 0 || targets == null)
         {
             return false;
