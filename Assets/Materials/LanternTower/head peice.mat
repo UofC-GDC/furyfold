@@ -6,10 +6,10 @@ Material:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: screensOnDoorsGlow
+  m_Name: head peice
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: _EMISSION
-  m_LightmapFlags: 1
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -60,9 +60,9 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _GlossMapScale: 1
-    - _Glossiness: 0
+    - _Glossiness: 0.358
     - _GlossyReflections: 1
-    - _Metallic: 0
+    - _Metallic: 0.812
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
@@ -72,5 +72,5 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.5894154, g: 0.4084952, b: 0.28028315, a: 1}
-    - _EmissionColor: {r: 1.9766746, g: 1.2522389, b: 0.47605774, a: 0}
+    - _Color: {r: 0.5882353, g: 0.40784314, b: 0.2784314, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
