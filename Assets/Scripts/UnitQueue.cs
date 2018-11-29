@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UnitQueue : MonoBehaviour
 {
@@ -11,21 +12,25 @@ public class UnitQueue : MonoBehaviour
 
 
 	[System.Serializable]
-	public struct Line{
+	public struct Line
+	{
 		public Vector3 start;
 		public Vector3 end;
 	}
 
 	[System.Serializable]
-	public struct Plane{
+	public struct Plane
+	{
 		public Line axis1;
 		public Line axis2;
 	}
 
 	public Plane spawnRange;
 
-	public int paper {
-		get {
+	public int paper
+	{
+		get
+		{
 			return _paper;
 		}
 	}
