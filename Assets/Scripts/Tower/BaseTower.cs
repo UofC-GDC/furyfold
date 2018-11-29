@@ -51,7 +51,7 @@ public abstract class BaseTower : MonoBehaviour, IDamagable
 	public abstract void DoDamage(BaseEnemy[] enemies);
 	public virtual void OnDeath()
 	{
-		FindObjectOfType<UnitQueue>().addPaper(paper);
+		//FindObjectOfType<UnitQueue>().addPaper(paper);
 		Destroy(gameObject);
 	}
 	public abstract void OnDamage(int strength, DamageType type = DamageType.NORMAL);

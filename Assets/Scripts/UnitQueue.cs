@@ -9,7 +9,20 @@ public class UnitQueue : MonoBehaviour
 
 	[SerializeField] private List<int> _queue = new List<int>();
 
-	public System.Tuple<System.Tuple<Vector3, Vector3>, System.Tuple<Vector3, Vector3>> spawnRange;
+
+	[System.Serializable]
+	public struct Line{
+		public Vector3 start;
+		public Vector3 end;
+	}
+
+	[System.Serializable]
+	public struct Plane{
+		public Line axis1;
+		public Line axis2;
+	}
+
+	public Plane spawnRange;
 
 	public int paper {
 		get {
@@ -28,7 +41,7 @@ public class UnitQueue : MonoBehaviour
 	{
 
 	}
-	
+
 	public void queue(int i)
 	{
 		_queue.Add(i);
