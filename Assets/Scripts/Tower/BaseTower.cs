@@ -21,6 +21,8 @@ public abstract class BaseTower : MonoBehaviour, IDamagable
 	private const float timeOut = 0.1f;
 	private float lastLoopTime;
 
+	public int health = 10;
+
 	[SerializeField] private int paper;
 
 
@@ -51,10 +53,14 @@ public abstract class BaseTower : MonoBehaviour, IDamagable
 	public abstract void DoDamage(BaseEnemy[] enemies);
 	public virtual void OnDeath()
 	{
-		//FindObjectOfType<UnitQueue>().addPaper(paper);
+		FindObjectOfType<UnitQueue>().addPaper(paper);  //You need to have a UnitQueue
 		Destroy(gameObject);
 	}
-	public abstract void OnDamage(int strength, DamageType type = DamageType.NORMAL);
+	public virtual void OnDamage(int strength, DamageType type = DamageType.NORMAL)
+	{
+		health -= strength;
+		if (health <= 0) OnDeath();
+	}
 }
 
 public enum DamageType

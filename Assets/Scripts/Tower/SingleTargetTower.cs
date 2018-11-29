@@ -14,8 +14,6 @@ public class SingleTargetTower : BaseTower
 	[SerializeField] int strength = 0;
 	[SerializeField] int _range = 0;
 
-	public int health = 10;
-
 	private BaseEnemy target;
 
 
@@ -52,11 +50,5 @@ public class SingleTargetTower : BaseTower
 		}
 		if (target != null) target.OnDamage(strength);
 
-	}
-
-	public override void OnDamage(int strength, DamageType type = DamageType.NORMAL)
-	{
-		health -= strength;
-		if(health<=0) base.OnDeath();
 	}
 }

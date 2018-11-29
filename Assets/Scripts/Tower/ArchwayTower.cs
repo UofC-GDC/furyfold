@@ -8,7 +8,6 @@ public class ArchwayTower : BaseTower
 
 	[SerializeField] int strength = 2;
 	[SerializeField] int _range = 0;
-	public int health = 10;
 
 	public override float range
 	{
@@ -29,11 +28,6 @@ public class ArchwayTower : BaseTower
 	// Update is called once per frame
 	override public void Update() { }
 
-	override public void OnDamage(int strength, DamageType type = DamageType.NORMAL)
-	{
-		health -= strength;
-		if(health<=0) base.OnDeath();
-	}
 
 	override public void DoDamage(BaseEnemy[] enemies)
 	{
