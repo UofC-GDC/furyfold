@@ -29,7 +29,9 @@ public class UnitFolder : MonoBehaviour
 		{
 			if (Time.time - startTime >= cur.time)
 			{
-				Instantiate(cur.UnitObject, transform.position, transform.rotation);
+				UnitQueue.Plane plane = ref queue.spawnRange;
+				var spawnPoint = Vector3.ProjectOnPlane(Random.OnUnitySphere + plane.centre, plane.normal);
+				Instantiate(cur.UnitObject, spawnPoint, transform.rotation);
 				cur = null;
 			}
 		}

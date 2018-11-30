@@ -10,19 +10,11 @@ public class UnitQueue : MonoBehaviour
 
 	[SerializeField] private List<int> _queue = new List<int>();
 
-
-	[System.Serializable]
-	public struct Line
-	{
-		public Vector3 start;
-		public Vector3 end;
-	}
-
 	[System.Serializable]
 	public struct Plane
 	{
-		public Line axis1;
-		public Line axis2;
+		public Vector3 centre;
+		public Vector3 normal;
 	}
 
 	public Plane spawnRange;
