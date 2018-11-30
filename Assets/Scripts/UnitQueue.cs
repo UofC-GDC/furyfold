@@ -13,8 +13,9 @@ public class UnitQueue : MonoBehaviour
 	[System.Serializable]
 	public struct Plane
 	{
-		public Vector3 centre;
-		public Vector3 normal;
+		public Transform position;
+		public float localXoff;
+		public float localZoff;
 	}
 
 	public Plane spawnRange;

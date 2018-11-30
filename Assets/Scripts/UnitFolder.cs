@@ -30,7 +30,10 @@ public class UnitFolder : MonoBehaviour
 			if (Time.time - startTime >= cur.time)
 			{
 				UnitQueue.Plane plane = ref queue.spawnRange;
-				var spawnPoint = Vector3.ProjectOnPlane(Random.OnUnitySphere + plane.centre, plane.normal);
+				var spawnPoint = new Vector3(
+					plane.left + Random.Range(-plane.localXOff, plane.localXoff), 
+					plane.up, 
+					plane.forward + Random.Range(-plane.localZoff, plane.localZoff));
 				Instantiate(cur.UnitObject, spawnPoint, transform.rotation);
 				cur = null;
 			}
