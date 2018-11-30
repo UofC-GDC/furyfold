@@ -5,7 +5,7 @@ using UnityEngine;
 public class UnitFolder : MonoBehaviour
 {
 
-	public UnitQueue queue;
+	private UnitQueue queue;
 
 	private UnitQueue.UnitType cur = null;
 
@@ -14,7 +14,7 @@ public class UnitFolder : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-
+		queue = FindObjectOfType<UnitQueue>();
 	}
 
 	// Update is called once per frame
