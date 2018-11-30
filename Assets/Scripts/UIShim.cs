@@ -5,11 +5,13 @@ using UnityEngine;
 public class UIShim : MonoBehaviour
 {
 
-	[SerializeField] private UnitQueue queue;
+	readonly char[] deleteKeys = new char[] { 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p' };
+
+	private UnitQueue queue;
 	// Use this for initialization
 	void Start()
 	{
-
+		queue = FindObjectOfType<UnitQueue>();
 	}
 
 	// Update is called once per frame

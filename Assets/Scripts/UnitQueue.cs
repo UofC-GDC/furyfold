@@ -35,18 +35,6 @@ public class UnitQueue : MonoBehaviour
 		}
 	}
 
-	// Use this for initialization
-	void Start()
-	{
-
-	}
-
-	// Update is called once per frame
-	void Update()
-	{
-
-	}
-
 	public void queue(int i)
 	{
 		_queue.Add(i);
@@ -83,5 +71,6 @@ public class UnitQueue : MonoBehaviour
 		public GameObject UnitObject;
 		public int cost;
 		public float time;
+		public Image icon;
 	}
 }
