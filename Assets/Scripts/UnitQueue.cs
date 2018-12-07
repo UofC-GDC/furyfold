@@ -31,7 +31,7 @@ public class UnitQueue : MonoBehaviour
 
 		//This is just a while loop
 		for (; qeIterator.MoveNext() && qIterator.MoveNext();){
-			image = qeIterator.GetCurrent;
+			image = qeIterator.Current;
 			unitType = qIterator.Current;
 
 			image.color = unitType.color;
@@ -67,7 +67,7 @@ public class UnitQueue : MonoBehaviour
 		_paper += n;
 	}
 
-	public UnitType MoveNext()
+	public UnitType getNext()
 	{
 		for (var i = 0; i < _queue.Count; i++)
 		{
