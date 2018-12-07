@@ -101,8 +101,8 @@ MonoBehaviour:
   target: {fileID: 0}
   ID: 0
   health: 10
-  sightRange: 10
-  attackRange: 2.5
+  sightRange: 50
+  attackRange: 5
   strength: 1
 --- !u!195 &195481031162645034
 NavMeshAgent:
