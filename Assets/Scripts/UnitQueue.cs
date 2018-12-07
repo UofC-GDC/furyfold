@@ -19,10 +19,8 @@ public class UnitQueue : MonoBehaviour
 		public float localZoff;
 	}
 
+	//Colour queue
 	public void Update(){
-		// foreach (Image element in queueElements){
-		// 	element.color = 
-		// }
 
 		var qeIterator = queueElements.GetEnumerator();
 		qeIterator.GetNext();
@@ -30,11 +28,17 @@ public class UnitQueue : MonoBehaviour
 		var qIterator = unitTypes.GetEnumerator();
 		var image = qeIterator.Current;
 		var unitType = qIterator.Current;
+
+		//This is just a while loop
 		for (; qeIterator.GetNext() && qIterator.GetNext();){
 			image = qeIterator.GetCurrent;
 			unitType = qIterator.Current;
 
 			image.color = unitType.color;
+		}
+		for(; qeIterator.GetNext();){
+			Color transparent = new Color(0,0,0,0);
+			qeIterator.Current.color = transparent;
 		}
 	}
 
