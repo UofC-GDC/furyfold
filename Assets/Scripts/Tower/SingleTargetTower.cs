@@ -26,8 +26,6 @@ public class SingleTargetTower : BaseTower
 		}
 	}
 
-
-
 	// Just do some damage to every enemy equally
 	public override void DoDamage(BaseEnemy[] enemies)
 	{

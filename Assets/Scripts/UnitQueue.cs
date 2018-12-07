@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class UnitQueue : MonoBehaviour
 {
+	public List<Image> queueElements = new List<Image>();
 	[SerializeField] public List<UnitType> unitTypes = new List<UnitType>();
 	[SerializeField] private int _paper = 0;
 
@@ -16,6 +17,29 @@ public class UnitQueue : MonoBehaviour
 		public Transform position;
 		public float localXoff;
 		public float localZoff;
+	}
+
+	//Colour queue
+	public void Update(){
+
+		var qeIterator = queueElements.GetEnumerator();
+		qeIterator.MoveNext();
+
+		var qIterator = unitTypes.GetEnumerator();
+		var image = qeIterator.Current;
+		var unitType = qIterator.Current;
+
+		//This is just a while loop
+		for (; qeIterator.MoveNext() && qIterator.MoveNext();){
+			image = qeIterator.Current;
+			unitType = qIterator.Current;
+
+			image.color = unitType.color;
+		}
+		for(; qeIterator.MoveNext();){
+			Color transparent = new Color(0,0,0,0);
+			qeIterator.Current.color = transparent;
+		}
 	}
 
 	public Plane spawnRange;
@@ -64,6 +88,6 @@ public class UnitQueue : MonoBehaviour
 		public GameObject UnitObject;
 		public int cost;
 		public float time;
-		public Image icon;
+		public Color color;
 	}
 }
