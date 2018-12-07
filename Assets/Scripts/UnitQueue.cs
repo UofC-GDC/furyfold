@@ -23,20 +23,20 @@ public class UnitQueue : MonoBehaviour
 	public void Update(){
 
 		var qeIterator = queueElements.GetEnumerator();
-		qeIterator.GetNext();
+		qeIterator.MoveNext();
 
 		var qIterator = unitTypes.GetEnumerator();
 		var image = qeIterator.Current;
 		var unitType = qIterator.Current;
 
 		//This is just a while loop
-		for (; qeIterator.GetNext() && qIterator.GetNext();){
+		for (; qeIterator.MoveNext() && qIterator.MoveNext();){
 			image = qeIterator.GetCurrent;
 			unitType = qIterator.Current;
 
 			image.color = unitType.color;
 		}
-		for(; qeIterator.GetNext();){
+		for(; qeIterator.MoveNext();){
 			Color transparent = new Color(0,0,0,0);
 			qeIterator.Current.color = transparent;
 		}
@@ -67,7 +67,7 @@ public class UnitQueue : MonoBehaviour
 		_paper += n;
 	}
 
-	public UnitType getNext()
+	public UnitType MoveNext()
 	{
 		for (var i = 0; i < _queue.Count; i++)
 		{
