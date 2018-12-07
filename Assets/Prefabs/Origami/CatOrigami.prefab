@@ -102,7 +102,7 @@ MonoBehaviour:
   ID: 0
   health: 10
   sightRange: 50
-  attackRange: 5
+  attackRange: 10
   strength: 1
 --- !u!195 &195481031162645034
 NavMeshAgent:

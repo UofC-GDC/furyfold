@@ -61,6 +61,7 @@ public class Stealth : BaseEnemy {
     private bool IsTargetWithinAttackRange()
     {
         float distance = Vector3.Distance(transform.position, towerTarget.transform.position);
+        print(distance);
         
         if(distance <= attackRange)
         {
@@ -82,13 +83,6 @@ public class Stealth : BaseEnemy {
              where tower != null
              select tower).ToArray();
 
-        var toPrint = "Hits: ";
-        foreach (var hit in hits){
-            toPrint += hit;
-            toPrint += "\n";
-        }
-        print(toPrint);
-
         // Make a list of all nearby ArchwayTowers
         var archwayList =
             (from at in (from maybeAt in hits
@@ -108,26 +102,9 @@ public class Stealth : BaseEnemy {
             targets = (from at in hits select at as BaseTower).ToList();
         }
 
-        toPrint = "Targets: \n";
-        foreach (var hit in targets){
-            toPrint += hit;
-            toPrint += "\n";
-        }
-        toPrint += "Count: ";
-        toPrint += targets.Count;
-        print(toPrint);
-
         // When no towers are found
         if (targets.Count <= 0 || targets == null)
         {
-            print(
-                string.Format(
-                    "({0} = {1} || {2} = {3}) = {4}",
-                     targets.Count,
-                     targets.Count <= 0,
-                     targets,
-                     targets == null,
-                     targets.Count <= 0 || targets == null));
             return false;
         }
 
