@@ -29,11 +29,11 @@ public class UnitFolder : MonoBehaviour
 		{
 			if (Time.time - startTime >= cur.time)
 			{
-				UnitQueue.Plane plane = ref queue.spawnRange;
-				var spawnPoint = new Vector3(
-					plane.left + Random.Range(-plane.localXOff, plane.localXoff), 
-					plane.up, 
-					plane.forward + Random.Range(-plane.localZoff, plane.localZoff));
+				UnitQueue.Plane plane = queue.spawnRange;
+				var spawnPoint =  
+					plane.position.position +
+					plane.position.right * Random.Range(-plane.localXoff, plane.localXoff) +
+					plane.position.forward * Random.Range(-plane.localZoff, plane.localZoff);
 				Instantiate(cur.UnitObject, spawnPoint, transform.rotation);
 				cur = null;
 			}

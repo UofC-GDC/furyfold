@@ -54,11 +54,13 @@ public abstract class BaseTower : MonoBehaviour, IDamagable
 	public virtual void OnDeath()
 	{
 		FindObjectOfType<UnitQueue>().addPaper(paper);  //You need to have a UnitQueue
-		Destroy(gameObject);
+		print(gameObject.name);
+		DestroyImmediate(gameObject);
 	}
 	public virtual void OnDamage(int strength, DamageType type = DamageType.NORMAL)
 	{
 		health -= strength;
+		print(health);
 		if (health <= 0) OnDeath();
 	}
 }
