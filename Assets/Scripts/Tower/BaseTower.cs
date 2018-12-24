@@ -19,7 +19,7 @@ public abstract class BaseTower : MonoBehaviour, IDamagable
 	public abstract float range { get; }
 
 	private const float timeOut = 0.1f;
-	private float lastLoopTime;
+	private float lastLoopTime=0;
 
 	public int health = 10;
 
@@ -34,16 +34,27 @@ public abstract class BaseTower : MonoBehaviour, IDamagable
 			// find all nearby objects
 			var rayCastHits = Physics.SphereCastAll(transform.position, range, Vector3.up);
 
-			//Select the BaseEnemy component of all nearby colliders that are enemies
-			var hits =
-				(from enemy in
-					(from hit in rayCastHits
-					 select hit.collider.GetComponent<BaseEnemy>())
-				 where enemy != null
-				 select enemy).ToArray();
+            //Select the BaseEnemy component of all nearby colliders that are enemies
+            List<BaseEnemy> hitsL = new List<BaseEnemy>();
+            foreach (RaycastHit hit in rayCastHits)
+            {
+                var enemy = hit.collider.GetComponent<BaseEnemy>();
+                if (enemy != null) hitsL.Add(enemy);
+            }
+            var hits = hitsL.ToArray();
 
-			// Let the implementing class deal with the enemies
-			DoDamage(hits);
+    //        var hits =
+				//(from enemy in
+				//	(from hit in rayCastHits
+				//	 select hit.collider.GetComponent<BaseEnemy>())
+				// where enemy != null
+				// select enemy).ToArray();
+
+            //
+
+
+            // Let the implementing class deal with the enemies
+            DoDamage(hits);
 
 			lastLoopTime = Time.time;
 		}
@@ -54,15 +65,18 @@ public abstract class BaseTower : MonoBehaviour, IDamagable
 	public virtual void OnDeath()
 	{
 		FindObjectOfType<UnitQueue>().addPaper(paper);  //You need to have a UnitQueue
-		print(gameObject.name);
 		DestroyImmediate(gameObject);
 	}
 	public virtual void OnDamage(int strength, DamageType type = DamageType.NORMAL)
 	{
 		health -= strength;
-		print(health);
 		if (health <= 0) OnDeath();
 	}
+
+    public void OnDrawGizmos()
+    {
+        Gizmos.DrawSphere(transform.position, range);
+    }
 }
 
 public enum DamageType

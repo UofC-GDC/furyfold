@@ -9,7 +9,9 @@ public class UnitQueue : MonoBehaviour
 	[SerializeField] public List<UnitType> unitTypes = new List<UnitType>();
 	[SerializeField] private int _paper = 0;
 
-	[SerializeField] private List<int> _queue = new List<int>();
+	[SerializeField] public List<int> _queue = new List<int>();
+
+    public Text paperText;
 
 	[System.Serializable]
 	public struct Plane
@@ -20,8 +22,8 @@ public class UnitQueue : MonoBehaviour
 	}
 
 	//Colour queue
-	public void Update(){
-
+	public void Update()
+    {
 		var qeIterator = queueElements.GetEnumerator();
 		qeIterator.MoveNext();
 
@@ -29,18 +31,36 @@ public class UnitQueue : MonoBehaviour
 		var image = qeIterator.Current;
 		var unitType = qIterator.Current;
 
-		//This is just a while loop
-		for (; qeIterator.MoveNext() && qIterator.MoveNext();){
-			image = qeIterator.Current;
-			unitType = qIterator.Current;
+        for (int i = 0; i < queueElements.Count; i++)
+        {
+            Image queueElementImage = queueElements[i];
+            Color color;
+            try
+            {
+                color = unitTypes[_queue[i]].color;
+            }
+            catch (System.ArgumentOutOfRangeException e)
+            {
+                color = new Color(0, 0, 0, 0);
+            }
+            queueElementImage.color = color;
+        }
 
-			image.color = unitType.color;
-		}
-		for(; qeIterator.MoveNext();){
-			Color transparent = new Color(0,0,0,0);
-			qeIterator.Current.color = transparent;
-		}
-	}
+        //for (; qeIterator.MoveNext() && qIterator.MoveNext();){
+        //	image = qeIterator.Current;
+        //	unitType = qIterator.Current;
+
+        //	image.color = unitType.color;
+        //}
+        //for(; qeIterator.MoveNext();){
+        //	Color transparent = new Color(0,0,0,0);
+        //	qeIterator.Current.color = transparent;
+        //}
+
+        paperText.text = paper.ToString();
+
+        //foreach (UnitType u in q) Console.Write(c + " ");
+    }
 
 	public Plane spawnRange;
 
@@ -90,4 +110,10 @@ public class UnitQueue : MonoBehaviour
 		public float time;
 		public Color color;
 	}
+
+
+    void OnDrawGizmos()
+    {
+        Gizmos.DrawCube(spawnRange.position.position, new Vector3(spawnRange.localXoff, spawnRange.localZoff, 1f));
+    }
 }

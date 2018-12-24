@@ -23,9 +23,10 @@ GameObject:
   - component: {fileID: 23216889045319208}
   - component: {fileID: 208169985928470992}
   - component: {fileID: 114658856318795682}
+  - component: {fileID: 65284685017317432}
   m_Layer: 0
   m_Name: BlessingTower
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36,13 +37,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1056488686896688}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 0.0094934, y: 1.5716, z: -0.000000041848}
-  m_LocalScale: {x: 56.795002, y: 56.795002, z: 56.795002}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!23 &23216889045319208
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -58,11 +59,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: b511756ca078d4bbfb17f43e2ce8904c, type: 3}
-  - {fileID: 2100002, guid: b511756ca078d4bbfb17f43e2ce8904c, type: 3}
-  - {fileID: 2100004, guid: b511756ca078d4bbfb17f43e2ce8904c, type: 3}
-  - {fileID: 2100006, guid: b511756ca078d4bbfb17f43e2ce8904c, type: 3}
-  - {fileID: 2100008, guid: b511756ca078d4bbfb17f43e2ce8904c, type: 3}
+  - {fileID: 2100000, guid: 36428b26813da2348b8bb48b42909a86, type: 2}
+  - {fileID: 2100000, guid: 52e48c6218486654db6675b3d797ef78, type: 2}
+  - {fileID: 2100000, guid: f8f16a373248c1b41bd463c72f4cb6d2, type: 2}
+  - {fileID: 2100000, guid: 48eb0de61e192674e949011645e0910e, type: 2}
+  - {fileID: 2100000, guid: 8954c7a32cfb0364db89414bee04ab0d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -88,7 +89,19 @@ MeshFilter:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1056488686896688}
-  m_Mesh: {fileID: 4300000, guid: b511756ca078d4bbfb17f43e2ce8904c, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 5c6eece6f1c57bc4798786ec70edd8a4, type: 3}
+--- !u!65 &65284685017317432
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1056488686896688}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.06300849, y: 0.0015192059, z: 0.074635066}
+  m_Center: {x: 0.00021972694, y: -0.0000000033469414, z: 0.036374953}
 --- !u!114 &114658856318795682
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -101,7 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
-  paper: 10
+  paper: 50
 --- !u!208 &208169985928470992
 NavMeshObstacle:
   m_ObjectHideFlags: 1

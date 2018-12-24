@@ -28,7 +28,8 @@ public abstract class BaseEnemy : MonoBehaviour, IDamagable
         ID = counter;
         agent = GetComponent<NavMeshAgent>();
         counter++;
-	}
+        agent.Warp(transform.position);
+    }
 
 	// Update is called once per frame
 	public virtual void Update()

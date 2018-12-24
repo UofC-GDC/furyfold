@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114189545396146378}
   m_Layer: 0
   m_Name: Archway 1
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -52,9 +52,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1439698866783242}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_Children:
   - {fileID: 4855428104044132}
   m_Father: {fileID: 0}
@@ -129,8 +129,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5.64, y: 3, z: 2}
-  m_Center: {x: 0, y: 1.555, z: 0}
+  m_Size: {x: 2.2860172, y: 2.1041408, z: 2.389728}
+  m_Center: {x: 0.019203026, y: 1.0455699, z: 0.0038925805}
 --- !u!114 &114189545396146378
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -142,9 +142,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85a53dd1af0604deb8806dc6580f3d08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
-  paper: 0
-  strength: 2
+  health: 4
+  paper: 40
+  strength: 1
   _range: 0
 --- !u!208 &208810084970691604
 NavMeshObstacle:
@@ -155,9 +155,9 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 2.82, y: 1.5, z: 1}
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
   m_MoveThreshold: 0.1
   m_Carve: 1
   m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 1.555, z: 0}
+  m_Center: {x: 0, y: 3, z: 0}
   m_TimeToStationary: 0.5

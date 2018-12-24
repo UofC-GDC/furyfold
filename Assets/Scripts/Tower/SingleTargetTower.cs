@@ -29,7 +29,7 @@ public class SingleTargetTower : BaseTower
 	// Just do some damage to every enemy equally
 	public override void DoDamage(BaseEnemy[] enemies)
 	{
-		bool ispresent = false;
+        bool ispresent = false;
 		if (target != null)
 		{
 			for (int i = 0; i < enemies.Length; i++)
@@ -37,7 +37,6 @@ public class SingleTargetTower : BaseTower
 				if (target.ID == enemies[i].ID)
 				{
 					ispresent = true;
-					Debug.Log("kek");
 				}
 			}
 		}
@@ -46,7 +45,10 @@ public class SingleTargetTower : BaseTower
 		{
 			target = enemies[0];
 		}
-		if (target != null) target.OnDamage(strength);
+        if (target != null)
+        {
+            target.OnDamage(strength);
+        }
 
 	}
 }

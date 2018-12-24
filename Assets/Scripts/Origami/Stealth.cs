@@ -34,10 +34,8 @@ public class Stealth : BaseEnemy {
     public void DoDamage()
     {
         var itwar = IsTargetWithinAttackRange();
-        print(itwar);
         if(itwar)
         {
-            print(towerTarget);
             towerTarget.OnDamage(strength);
             target = gameObject.transform;
         }
@@ -61,7 +59,6 @@ public class Stealth : BaseEnemy {
     private bool IsTargetWithinAttackRange()
     {
         float distance = Vector3.Distance(transform.position, towerTarget.transform.position);
-        print(distance);
         
         if(distance <= attackRange)
         {

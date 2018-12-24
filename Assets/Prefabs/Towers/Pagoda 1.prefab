@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114601355163205754}
   m_Layer: 0
   m_Name: Pagoda 1
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -52,14 +52,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1105847626382078}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.00000044400173, y: 0.83577704, z: 0.0000000035228316, w: 0.5490689}
+  m_LocalPosition: {x: 8.56, y: -0, z: 6.95}
+  m_LocalScale: {x: 0.30000004, y: 0.29999998, z: 0.30000004}
   m_Children:
   - {fileID: 4610664817067998}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 113.394005, z: 0}
 --- !u!4 &4610664817067998
 Transform:
   m_ObjectHideFlags: 1
@@ -147,9 +147,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
-  paper: 1
-  strength: 1
-  _range: 1
+  paper: 100
+  strength: 2
+  _range: 3
 --- !u!208 &208154756390821882
 NavMeshObstacle:
   m_ObjectHideFlags: 1

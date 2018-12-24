@@ -14,7 +14,7 @@ public class Lantern : BaseTower
 	{
 		get
 		{
-			return _range;
+			return 0;
 		}
 	}
 
@@ -40,7 +40,7 @@ public class Lantern : BaseTower
 
 	public override void OnDeath()
 	{
-		var rayCastHits = Physics.SphereCastAll(transform.position, range, Vector3.up);
+		var rayCastHits = Physics.SphereCastAll(transform.position, _range, Vector3.up);
 
 		//Select the BaseEnemy component of all nearby colliders that are enemies
 		var hits =

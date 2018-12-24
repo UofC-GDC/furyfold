@@ -33,7 +33,7 @@ public class ArchwayTower : BaseTower
 	{
 	}
 
-	private void OnTriggerEnter(Collider other)
+	private void OnTriggerStay(Collider other)
 	{
 		other.GetComponent<BaseEnemy>()?.OnDamage(strength);
 	}

@@ -14,7 +14,32 @@ ModelImporter:
     3300000: //RootNode
     4300000: String
     9500000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ConnectingString
+    second: {fileID: 2100000, guid: 36428b26813da2348b8bb48b42909a86, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GoldenBreaks
+    second: {fileID: 2100000, guid: 52e48c6218486654db6675b3d797ef78, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Paper
+    second: {fileID: 2100000, guid: f8f16a373248c1b41bd463c72f4cb6d2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Strings
+    second: {fileID: 2100000, guid: 48eb0de61e192674e949011645e0910e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wood_Posts
+    second: {fileID: 2100000, guid: 8954c7a32cfb0364db89414bee04ab0d, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
