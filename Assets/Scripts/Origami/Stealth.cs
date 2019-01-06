@@ -91,7 +91,7 @@ public class Stealth : BaseEnemy {
         //    select at).ToList();
         #endregion
 
-        var archwayList = FindObjectsOfType<ArchwayTower>().OrderBy(st => (st.gameObject.transform.position - transform.position).sqrMagnitude);
+        var archwayList = FindObjectsOfType<ArchwayTower>().OrderBy(st => (st.gameObject.transform.position - transform.position).sqrMagnitude).ToList();
 
         // Make a hitlist of ArchwayTowers if any exist otherwise have a hitlist of all towers nearby
         List<BaseTower> targets = new List<BaseTower>();
@@ -112,6 +112,7 @@ public class Stealth : BaseEnemy {
         }
 
         towerTarget = targets[0];
+        target = towerTarget.transform;
 
         #region Refactored
         //// Go through all possible targets and choose the closest one as the target
