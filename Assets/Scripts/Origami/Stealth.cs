@@ -70,22 +70,28 @@ public class Stealth : BaseEnemy {
 
     private bool FindNearestArchwayTower()
     {
-        var rayCastHits = Physics.SphereCastAll(transform.position, sightRange, Vector3.up);
+        //REFACTOR NOTE Physics call too expensive to do with many objects every frame.
 
-        //Select the BaseTower component of all nearby colliders that are Towers
-        var hits =
-            (from tower in
-                (from hit in rayCastHits
-                 select hit.collider.GetComponent<BaseTower>())
-             where tower != null
-             select tower).ToArray();
+        #region Refactored
+        //var rayCastHits = Physics.SphereCastAll(transform.position, sightRange, Vector3.up);
 
-        // Make a list of all nearby ArchwayTowers
-        var archwayList =
-            (from at in (from maybeAt in hits
-                        select maybeAt as ArchwayTower)
-            where at != null
-            select at).ToList();
+        ////Select the BaseTower component of all nearby colliders that are Towers
+        //var hits =
+        //    (from tower in
+        //        (from hit in rayCastHits
+        //         select hit.collider.GetComponent<BaseTower>())
+        //     where tower != null
+        //     select tower).ToArray();
+
+        //// Make a list of all nearby ArchwayTowers
+        //var archwayList =
+        //    (from at in (from maybeAt in hits
+        //                select maybeAt as ArchwayTower)
+        //    where at != null
+        //    select at).ToList();
+        #endregion
+
+        var archwayList = FindObjectsOfType<ArchwayTower>().OrderBy(st => (st.gameObject.transform.position - transform.position).sqrMagnitude);
 
         // Make a hitlist of ArchwayTowers if any exist otherwise have a hitlist of all towers nearby
         List<BaseTower> targets = new List<BaseTower>();
@@ -96,32 +102,36 @@ public class Stealth : BaseEnemy {
         }
         else
         {
+            var hits = FindObjectsOfType<BaseTower>().OrderBy(st => (st.gameObject.transform.position - transform.position).sqrMagnitude);
             targets = (from at in hits select at as BaseTower).ToList();
-        }
-
-        // When no towers are found
-        if (targets.Count <= 0 || targets == null)
-        {
-            return false;
-        }
-
-        // Go through all possible targets and choose the closest one as the target
-        BaseTower p = null;
-        foreach (BaseTower possibleTarget in targets)
-        {
-            if(p == null)
+            // When no towers are found
+            if (targets.Count <= 0 || targets == null)
             {
-                p = possibleTarget;
-                target = possibleTarget.transform;
-                towerTarget = possibleTarget;
-            }
-
-            if (p != null && Vector3.Distance(transform.position, possibleTarget.transform.position) <= Vector3.Distance(transform.position, p.transform.position))
-            {
-                target = possibleTarget.transform;
-                towerTarget = possibleTarget;
+                return false;
             }
         }
+
+        towerTarget = targets[0];
+
+        #region Refactored
+        //// Go through all possible targets and choose the closest one as the target
+        //BaseTower p = null;
+        //foreach (BaseTower possibleTarget in targets)
+        //{
+        //    if(p == null)
+        //    {
+        //        p = possibleTarget;
+        //        target = possibleTarget.transform;
+        //        towerTarget = possibleTarget;
+        //    }
+
+        //    if (p != null && Vector3.Distance(transform.position, possibleTarget.transform.position) <= Vector3.Distance(transform.position, p.transform.position))
+        //    {
+        //        target = possibleTarget.transform;
+        //        towerTarget = possibleTarget;
+        //    }
+        //}
+        #endregion
 
         return true;
     }
